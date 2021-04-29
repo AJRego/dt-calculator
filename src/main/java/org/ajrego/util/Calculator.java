@@ -28,7 +28,7 @@ public class Calculator {
         }
     }
 
-    double getDownloadTime(String sizeUnit, double size, String speedUnit, double speed){
+    public double getDownloadTime(String sizeUnit, double size, String speedUnit, double speed){
         double downloadTime = ((getFileSizeInMB(sizeUnit, size)) * 1000);
         downloadTime = downloadTime / getDownloadSpeed(speedUnit, speed);
         return downloadTime / 60;
