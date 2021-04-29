@@ -14,32 +14,35 @@ import java.util.ResourceBundle;
 
 public class Main implements Initializable {
 
-    @FXML private TextField txtSize;
-    @FXML private TextField txtSpeed;
-    @FXML private Button btnMB;
-    @FXML private Button btnGB;
-    @FXML private Button btnTB;
-    @FXML private Button btnKbps;
-    @FXML private Button btnMbps;
-    @FXML private Label lbDownloadTime;
+    @FXML
+    private TextField txtSize;
+    @FXML
+    private TextField txtSpeed;
+    @FXML
+    private Button btnMB;
+    @FXML
+    private Button btnGB;
+    @FXML
+    private Button btnTB;
+    @FXML
+    private Button btnKbps;
+    @FXML
+    private Button btnMbps;
+    @FXML
+    private Label lbDownloadTime;
 
-    Calculator calculator = null;
+    Calculator calculator;
     private String sizeUnit = "";
     private String speedUnit = "";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        calculator = new Calculator();
         sizeUnit = "MB";
         speedUnit = "Mbps";
         txtSize.setText("10");
         txtSpeed.setText("1");
 
-        lbDownloadTime.setText("" + calculator.getDownloadTime(
-                getSizeUnit(),
-                Double.parseDouble(txtSize.getText()),
-                getSpeedUnit(),
-                Double.parseDouble(txtSpeed.getText())));
+        getDownloadTime();
     }
 
     public String getSizeUnit() {
@@ -60,24 +63,29 @@ public class Main implements Initializable {
 
     @FXML
     void buttonsDownloadTime(MouseEvent event) {
-        if(event.getSource() == btnMB){
+        if (event.getSource() == btnMB) {
             setSizeUnit("MB");
+            getDownloadTime();
         }
 
-        if(event.getSource() == btnGB){
+        if (event.getSource() == btnGB) {
             setSizeUnit("GB");
+            getDownloadTime();
         }
 
-        if(event.getSource() == btnTB){
+        if (event.getSource() == btnTB) {
             setSizeUnit("TB");
+            getDownloadTime();
         }
 
-        if(event.getSource() == btnKbps){
+        if (event.getSource() == btnKbps) {
             setSpeedUnit("Kbps");
+            getDownloadTime();
         }
 
-        if(event.getSource() == btnMbps){
+        if (event.getSource() == btnMbps) {
             setSpeedUnit("Mbps");
+            getDownloadTime();
         }
     }
 
@@ -88,20 +96,21 @@ public class Main implements Initializable {
 
     @FXML
     void fieldsDownloadTime(KeyEvent event) {
-        if(event.getSource() == txtSize){
-            lbDownloadTime.setText("" + calculator.getDownloadTime(
-                    getSizeUnit(),
-                    Double.parseDouble(txtSize.getText()),
-                    getSpeedUnit(),
-                    !txtSpeed.getText().equals("") ? Double.parseDouble(txtSpeed.getText()) : 0));
+        if (event.getSource() == txtSize) {
+            getDownloadTime();
         }
 
-        if(event.getSource() == txtSpeed){
-            lbDownloadTime.setText("" + calculator.getDownloadTime(
-                    getSizeUnit(),
-                    !txtSize.getText().equals("") ? Double.parseDouble(txtSize.getText()) : 0,
-                    getSpeedUnit(),
-                    Double.parseDouble(txtSpeed.getText())));
+        if (event.getSource() == txtSpeed) {
+            getDownloadTime();
         }
+    }
+
+    private void getDownloadTime() {
+        double result = calculator.getDownloadTime(
+                getSizeUnit(),
+                !txtSize.getText().isEmpty() ? Double.parseDouble(txtSize.getText()) : 0,
+                getSpeedUnit(),
+                !txtSpeed.getText().isEmpty() ? Double.parseDouble(txtSpeed.getText()) : 0);
+        lbDownloadTime.setText(calculator.getMinutes(result) + " Minutos " + calculator.getSeconds(result) + " Segundos");
     }
 }
