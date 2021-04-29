@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="336.0" prefWidth="475.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ajrego.ui.main.Main">
+   <children>
+      <Pane prefHeight="337.0" prefWidth="477.0" style="-fx-background-color: #393e46;">
+         <children>
+            <Label layoutX="60.0" layoutY="98.0" text="Tamaño:" textFill="#eeeeee">
+               <font>
+                  <Font name="Poppins Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="57.0" layoutY="159.0" text="Velocidad:" textFill="#eeeeee">
+               <font>
+                  <Font name="Poppins Medium" size="14.0" />
+               </font>
+            </Label>
+            <MaterialDesignIconView fill="WHITE" glyphName="CLOSE" layoutX="451.0" layoutY="25.0" />
+            <TextField layoutX="163.0" layoutY="96.0">
+               <font>
+                  <Font name="Poppins Medium" size="12.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="160.0" layoutY="157.0">
+               <font>
+                  <Font name="Poppins Medium" size="12.0" />
+               </font>
+            </TextField>
+            <Button layoutX="321.0" layoutY="96.0" mnemonicParsing="false" text="MB" />
+            <Button layoutX="355.0" layoutY="96.0" mnemonicParsing="false" text="GB" />
+            <Button layoutX="386.0" layoutY="96.0" mnemonicParsing="false" text="TB" />
+            <Button layoutX="318.0" layoutY="156.0" mnemonicParsing="false" text="Kbps" />
+            <Button layoutX="362.0" layoutY="156.0" mnemonicParsing="false" text="Mbps" />
+            <Label layoutX="167.0" layoutY="213.0" text="Tiempo que tardaría" textFill="#eeeeee">
+               <font>
+                  <Font name="Poppins Regular" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="152.0" layoutY="248.0" text="00 Minutos 00 Segundos" textFill="#eeeeee">
+               <font>
+                  <Font name="Poppins Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="162.0" layoutY="279.0" text="para descargar 00 XX" textFill="#eeeeee">
+               <font>
+                  <Font name="Poppins Regular" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="113.0" layoutY="44.0" text="Calculadora de tiempo de descarga" textFill="#eeeeee">
+               <font>
+                  <Font name="Poppins Medium" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
