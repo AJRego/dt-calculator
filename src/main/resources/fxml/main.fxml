@@ -63,7 +63,7 @@
                   <Font name="Poppins Medium" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="162.0" layoutY="286.0" text="para descargar 00 XX" textFill="#eeeeee">
+            <Label fx:id="lbMoreInfo" alignment="CENTER" layoutY="286.0" prefHeight="20.0" prefWidth="477.0" text="para descargar 00 XX" textFill="#eeeeee">
                <font>
                   <Font name="Poppins Regular" size="14.0" />
                </font>

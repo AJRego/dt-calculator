@@ -30,6 +30,8 @@ public class Main implements Initializable {
     private Button btnMbps;
     @FXML
     private Label lbDownloadTime;
+    @FXML
+    private Label lbMoreInfo;
 
     private String sizeUnit = "";
     private String speedUnit = "";
@@ -111,5 +113,9 @@ public class Main implements Initializable {
                 getSpeedUnit(),
                 !txtSpeed.getText().isEmpty() ? Double.parseDouble(txtSpeed.getText()) : 0);
         lbDownloadTime.setText(Calculator.getMinutes(result) + " Minutos " + Calculator.getSeconds(result) + " Segundos");
+        lbMoreInfo.setText("en descargar " + txtSize.getText() + " " + getSizeUnit()
+                + " con " + (Calculator.getDownloadSpeed(getSpeedUnit(),
+                Double.parseDouble(txtSpeed.getText())))
+                + " Kbps de bajada.");
     }
 }
