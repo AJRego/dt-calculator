@@ -31,7 +31,6 @@ public class Main implements Initializable {
     @FXML
     private Label lbDownloadTime;
 
-    Calculator calculator;
     private String sizeUnit = "";
     private String speedUnit = "";
 
@@ -106,11 +105,11 @@ public class Main implements Initializable {
     }
 
     private void getDownloadTime() {
-        double result = calculator.getDownloadTime(
+        double result = Calculator.getDownloadTime(
                 getSizeUnit(),
                 !txtSize.getText().isEmpty() ? Double.parseDouble(txtSize.getText()) : 0,
                 getSpeedUnit(),
                 !txtSpeed.getText().isEmpty() ? Double.parseDouble(txtSpeed.getText()) : 0);
-        lbDownloadTime.setText(calculator.getMinutes(result) + " Minutos " + calculator.getSeconds(result) + " Segundos");
+        lbDownloadTime.setText(Calculator.getMinutes(result) + " Minutos " + Calculator.getSeconds(result) + " Segundos");
     }
 }
